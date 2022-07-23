@@ -85,30 +85,27 @@ struct ContentView: View {
             GeometryReader { geo in
                 ZStack {
                     GeometryReader { geometry in
-                        ZStack {
+                        ZStack (alignment: .center){
                             HStack {
-                                Spacer(minLength: 10)
                                 Text("9")
-                                Spacer(minLength: 20)
-                               
-                                Spacer(minLength: 20)
+                                Spacer()
                                 Text("3")
-                                Spacer(minLength: 10)
-                              
+                                EmptyView()
                             }
                             VStack {
-                                Spacer(minLength: 10)
+                                EmptyView()
                                 Text("12")
-                                Spacer(minLength: 20)
-                               
-                                Spacer(minLength: 20)
+                                Spacer()
                                 Text("6")
-                                Spacer(minLength: 10)
-                                
+                                EmptyView()
                             }
                         }
                         .padding()
-                        .frame(width: geometry.size.width ,height:  geometry.size.height)
+                        .frame(width: geometry.size.width,
+                               height:  geometry.size.height,
+                              // maxWidth: min(geometry.size.width,geometry.size.height)
+                            // ,maxHeight: min(geometry.size.width,geometry.size.height)
+                               alignment: .center)
                         
                     }.padding()
                     ForEach(0..<60) { tick in
